@@ -104,6 +104,10 @@ impl Error {
     }
 }
 
+/// Automatically implement std::error::Error, so that it can be used with
+/// crates such as `failure`
+impl std::error::Error for Error {}
+
 /// Helper trait to downcast a response error into a fail.
 ///
 /// This is currently not exposed because it's unclear if this is the best way
